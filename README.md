@@ -14,5 +14,4 @@ Watch all files and run the tests when changed:
 ## TODO
 
 - Get 'watch' working correctly
-- Add CI status
 - Add Code Climate status
