@@ -3,8 +3,12 @@ version: "3"
 services:
   test:
     build: .
+    volumes:
+      - .:/code/public_attributes
     command: bundle exec rspec
 
   watch:
     build: .
+    volumes:
+      - .:/code/public_attributes
     command: bundle exec guard -c

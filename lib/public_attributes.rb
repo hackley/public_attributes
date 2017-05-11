@@ -5,6 +5,8 @@
 # whitelists attributes that are ok to send to the client, JSON endpoints, etc.
 #
 
+require 'json'
+
 module PublicAttributes
   @_public_attributes ||= {}
 
@@ -56,14 +58,10 @@ module PublicAttributes
     end
     return hash
   end
-  #
-  # def to_json(params = { unsafe: false })
-  #   if params[:unsafe] == true
-  #     super
-  #   else
-  #     JSON.generate self.to_public
-  #   end
-  # end
+
+  def to_json
+    JSON.generate self.to_public
+  end
 
 private
 

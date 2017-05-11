@@ -28,7 +28,7 @@ describe PublicAttributes do
       test_class.public_attributes :first_name
       expect(PublicAttributes.for(test_class).size).to eq(1)
     end
-  end
+  end # self.public_attributes
 
   describe "#to_public" do
     let(:person_attributes) do
@@ -38,7 +38,7 @@ describe PublicAttributes do
     before(:each) do
       test_class.public_attributes :first_name, :last_name
     end
-    
+
     it "returns a hash" do
       person = test_class.new(person_attributes)
       expect(person.to_public.class).to eq(Hash)
@@ -69,13 +69,17 @@ describe PublicAttributes do
       }
       expect(person.to_public).to eq(expected)
     end
-  end
+  end # to_public
 
   describe "#to_json" do
-    pending "calls to_public by default"
-    pending "calls the superclass's to_json method, if unsafe == true"
-  end
-end
+    it "returns a JSON string containing only the object's public attributes" do
+      test_class.public_attributes :last_name
+      person = test_class.new(first_name: "john", last_name: "smith")
+      expect(person.to_json).to eq('{"last_name":"smith"}')
+    end
+  end # to_json
+
+end # PublicAttributes
 
 # TODO: test all_public_attributes with/without ActiveRecord
 # TODO: test self.to_public, which should only work with ActiveRecord
