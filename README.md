@@ -9,3 +9,10 @@ Run the tests once:
 Watch all files and run the tests when changed:
 
 `docker-compose run --rm watch`
+
+
+## TODO
+
+- Get 'watch' working correctly
+- Add CI status
+- Add Code Climate status
