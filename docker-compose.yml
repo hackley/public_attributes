@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  test:
+    build: .
+    command: bundle exec rspec
+
+  watch:
+    build: .
+    command: bundle exec guard -c

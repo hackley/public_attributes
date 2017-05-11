@@ -38,7 +38,7 @@ describe PublicAttributes do
     before(:each) do
       test_class.public_attributes :first_name, :last_name
     end
-
+    
     it "returns a hash" do
       person = test_class.new(person_attributes)
       expect(person.to_public.class).to eq(Hash)
