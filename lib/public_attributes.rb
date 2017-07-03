@@ -11,12 +11,11 @@ module PublicAttributes
   @_public_attributes ||= {}
 
   def self.included(klass)
-    @_public_attributes[klass.name] ||= []
     klass.extend(ClassMethods)
   end
 
   def self.add(class_name, attr_list)
-    @_public_attributes[class_name].push(*attr_list)
+    @_public_attributes[class_name] = *attr_list
     @_public_attributes[class_name].uniq!
   end
 

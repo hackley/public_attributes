@@ -24,8 +24,7 @@ describe PublicAttributes do
     end
 
     it "does not add the same attribute more than once" do
-      test_class.public_attributes :first_name
-      test_class.public_attributes :first_name
+      test_class.public_attributes :first_name, :first_name
       expect(PublicAttributes.for(test_class).size).to eq(1)
     end
   end # self.public_attributes
@@ -54,7 +53,7 @@ describe PublicAttributes do
     end
 
     it "calls #to_public on any attribute whos value responds to it" do
-      test_class.public_attributes :boss
+      test_class.public_attributes :first_name, :last_name, :boss
       person = test_class.new(person_attributes)
       boss_attributes = person_attributes.merge({ first_name: 'jim' })
       person.boss = test_class.new(boss_attributes)
