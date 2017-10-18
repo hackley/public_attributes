@@ -34,7 +34,7 @@ module PublicAttributes
 
     def to_public
       if defined?(ActiveRecord) && (self < ActiveRecord::Base)
-        map do |instance|
+        where(nil).map do |instance|
           instance.to_public
         end
       else

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'public_attributes'
-  s.version     = '0.0.3'
+  s.version     = '0.0.5'
   s.date        = '2017-04-26'
   s.summary     = "Public Attributes"
   s.description = "Simple public vs private attribute filtering for Ruby objects."
